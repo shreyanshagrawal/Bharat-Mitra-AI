@@ -8,6 +8,7 @@ import ReportIssuePage from "../pages/Dashboard_Extras/report_issue";
 import SchemesPage from "../pages/Schemes/SchemesPage";
 import LegalPage from "../pages/Legal/LegalPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
+import SupportPage from "../pages/Support/SupportPage";
 
 export default function AppRoutes() {
     return (
@@ -24,6 +25,7 @@ export default function AppRoutes() {
                 element={<ReportIssuePage />}
             />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/support" element={<SupportPage />} />
         </Routes>
     );
 }
