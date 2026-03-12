@@ -42,19 +42,29 @@ const ReportIssuePage = () => {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] font-sans text-slate-900 pb-20">
+      {/* Navigation */}
       <nav className="flex justify-between items-center px-8 py-3 bg-white border-b border-gray-200 sticky top-0 z-30">
-        <div className="flex items-center gap-2 text-sm text-slate-500">
-          <ChevronLeft size={16} />
-          <span>Dashboard</span>
+        <div className="flex items-center gap-2 text-sm">
+          <a
+            href="/dashboard"
+            className="flex items-center gap-1 text-slate-500 hover:text-orange-600 transition-colors group"
+          >
+            <ChevronLeft
+              size={16}
+              className="group-hover:-translate-x-1 transition-transform"
+            />
+            <span>Dashboard</span>
+          </a>
           <span className="text-slate-300">/</span>
           <span className="font-semibold text-slate-800">Report Issue</span>
         </div>
-        <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm cursor-pointer">
+        <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm cursor-pointer hover:bg-slate-200 transition">
           <User size={20} />
         </div>
       </nav>
 
       <main className="max-w-6xl mx-auto py-12 px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,7 +85,7 @@ const ReportIssuePage = () => {
           </header>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Issue Type with Custom Option */}
+            {/* Issue Type */}
             <div className="space-y-2">
               <label className="block font-bold text-slate-700">
                 Issue Type <span className="text-red-500">*</span>
@@ -87,8 +97,7 @@ const ReportIssuePage = () => {
                   onChange={(e) => setIssueType(e.target.value)}
                   className="w-full p-3 bg-white border border-slate-200 rounded-lg appearance-none focus:ring-2 focus:ring-orange-500 outline-none text-slate-700"
                 >
-                  <option value="">Select the type of problem</option>
-                  <option value="">Select the type of problem</option>
+
                   <option value="potholes">Potholes and Road Damage</option>
                   <option value="streetlight">Street Light Outage</option>
                   <option value="garbage">
@@ -145,7 +154,7 @@ const ReportIssuePage = () => {
                       placeholder="Specify your issue..."
                       value={customIssue}
                       onChange={(e) => setCustomIssue(e.target.value)}
-                      className="w-full p-3 border border-orange-200 bg-orange-50/30 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"
+                      className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition-all"
                     />
                   </motion.div>
                 )}
@@ -157,12 +166,12 @@ const ReportIssuePage = () => {
               <label className="block font-bold text-slate-700">
                 Location <span className="text-red-500">*</span>
               </label>
-              <div className="flex">
+              <div className="flex group">
                 <input
                   required
                   type="text"
                   placeholder="Enter street name or landmark"
-                  className="flex-1 p-3 border border-slate-200 rounded-l-lg focus:ring-2 focus:ring-orange-500 outline-none"
+                  className="flex-1 p-3 border border-slate-200 rounded-l-lg focus:ring-2 focus:ring-orange-500 outline-none transition-all z-10"
                 />
                 <button
                   type="button"
@@ -183,7 +192,7 @@ const ReportIssuePage = () => {
                 required
                 rows="4"
                 placeholder="Describe the problem in detail..."
-                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none resize-none"
+                className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none resize-none transition-all"
               ></textarea>
             </div>
 
@@ -195,7 +204,7 @@ const ReportIssuePage = () => {
               Generate Complaint Draft with AI
             </button>
 
-            {/* Upload Photo (Compulsory) */}
+            {/* Upload Photo */}
             <div className="space-y-2 pt-2">
               <label className="block font-bold text-slate-700 text-sm uppercase tracking-wide">
                 Upload Photo Evidence <span className="text-red-500">*</span>
@@ -256,7 +265,7 @@ const ReportIssuePage = () => {
           </form>
         </motion.div>
 
-        {/* --- Sidebar (Success State) --- */}
+        {/* Right Column: Success Sidebar */}
         <div className="lg:col-span-5 flex justify-center sticky top-24">
           <AnimatePresence mode="wait">
             {submitted ? (
@@ -275,38 +284,25 @@ const ReportIssuePage = () => {
                 <p className="text-slate-500 text-sm mb-8">
                   Your issue has been successfully registered.
                 </p>
-
-                <div className="space-y-4 text-sm mb-8 border-t border-b border-slate-50 py-6">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Complaint ID</span>
-                    <span className="font-bold text-slate-700">
-                      #BM-2023-8942
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Category</span>
-                    <span className="font-bold text-slate-700">
-                      {issueType === "other" ? customIssue : issueType}
-                    </span>
-                  </div>
-                </div>
-
                 <div className="space-y-3">
-                  <button className="w-full py-3 bg-[#243477] text-white font-bold rounded-lg flex items-center justify-center gap-2">
+                  <button className="w-full py-3 bg-[#243477] text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-[#1a265a] transition">
                     <Map size={18} /> Track Complaint
                   </button>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="w-full py-3 text-slate-600 font-bold border border-slate-200 rounded-lg"
+                    className="w-full py-3 text-slate-600 font-bold border border-slate-200 rounded-lg hover:bg-slate-50 transition"
                   >
                     Return to Dashboard
                   </button>
                 </div>
               </motion.div>
             ) : (
-              <div className="w-full max-w-md bg-slate-50 rounded-xl border border-dashed border-slate-200 h-[500px] flex items-center justify-center">
+              <div className="w-full max-w-md bg-slate-50 rounded-xl border border-dashed border-slate-200 h-[500px] flex flex-col items-center justify-center">
+                <div className="text-slate-300 mb-4">
+                  <AlertTriangle size={48} strokeWidth={1} />
+                </div>
                 <p className="text-slate-400 text-sm italic">
-                  Ready to submit...
+                  Ready to submit your report...
                 </p>
               </div>
             )}
