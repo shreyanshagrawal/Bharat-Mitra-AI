@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import LandingPage from "../pages/Landing/LandingPage";
 import LoginPage from "../pages/Auth/LoginPage";
 import DashboardPage from "../pages/Dashboard/DashboardPage";
+import ReportIssuePage from "../pages/Dashboard_Extras/report_issue";
 
 export default function AppRoutes() {
     return (
@@ -14,7 +15,10 @@ export default function AppRoutes() {
         
             {/* login page */}
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard/dashboard_report_issue" element={<ReportIssuePage />} />
+
+        
         </Routes>
     );
 }
