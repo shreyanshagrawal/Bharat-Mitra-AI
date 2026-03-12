@@ -10,8 +10,8 @@ export default function AppRoutes() {
         <Routes>
             <Route element={<MainLayout />}>
                 <Route path="/" element={<LandingPage />} />
-            </Route>
-
+        </Route>
+        
             {/* login page */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
