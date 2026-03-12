@@ -86,10 +86,44 @@ const ReportIssuePage = () => {
                   value={issueType}
                   onChange={(e) => setIssueType(e.target.value)}
                   className="w-full p-3 bg-white border border-slate-200 rounded-lg appearance-none focus:ring-2 focus:ring-orange-500 outline-none text-slate-700"
-                              >
-                <option value="">Select the type of problem</option>
-                
-                <option value="other">Other (Write your own)</option>
+                >
+                  <option value="">Select the type of problem</option>
+                  <option value="">Select the type of problem</option>
+                  <option value="potholes">Potholes and Road Damage</option>
+                  <option value="streetlight">Street Light Outage</option>
+                  <option value="garbage">
+                    Garbage Collection and Waste Management
+                  </option>
+                  <option value="water">Water Supply Issues</option>
+                  <option value="drainage">Drainage and Sewage Problems</option>
+                  <option value="encroachment">Illegal Encroachment</option>
+                  <option value="stray">Stray Animals</option>
+                  <option value="toilet">Public Toilet Maintenance</option>
+                  <option value="trees">Tree Cutting/Fallen Trees</option>
+                  <option value="noise">Noise Pollution</option>
+                  <option value="air">Air Pollution and Smoke</option>
+                  <option value="construction">Illegal Construction</option>
+                  <option value="traffic">Traffic Signal Malfunction</option>
+                  <option value="property">Public Property Damage</option>
+                  <option value="parking">Parking Issues</option>
+                  <option value="pension">Pension and Welfare Schemes</option>
+                  <option value="ration">Ration Card Issues</option>
+                  <option value="tax">Property Tax Dispute</option>
+                  <option value="certificate">
+                    Birth/Death Certificate Delay
+                  </option>
+                  <option value="school">School Admission Problems</option>
+                  <option value="hospital">
+                    Hospital and Healthcare Issues
+                  </option>
+                  <option value="electricity">
+                    Electricity Supply Problems
+                  </option>
+                  <option value="land">
+                    Land Records and Property Documents
+                  </option>
+                  <option value="police">Police Complaint and Safety</option>
+                  <option value="other">Other (Write your own)</option>
                 </select>
                 <ChevronDown
                   className="absolute right-3 top-3.5 text-slate-400 pointer-events-none"

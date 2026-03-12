@@ -108,12 +108,14 @@ const DashboardPage = () => {
                   title="Find Government Schemes"
                   desc="Discover schemes you are eligible for instantly."
                   actionText="Check Eligibility"
-                />
+                  link="/dashboard/schemes"
+                  />
                 <ServiceCard
                   icon={<AlertTriangle className="text-orange-600" />}
                   title="Report Civic Issue"
                   desc="Report problems in your area like potholes."
                   actionText="Report Issue"
+                  link="/dashboard/dashboard_report_issue"
                 />
                 <ServiceCard
                   icon={<Scale className="text-orange-600" />}
