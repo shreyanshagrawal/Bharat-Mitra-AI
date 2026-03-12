@@ -7,20 +7,23 @@ import DashboardPage from "../pages/Dashboard/DashboardPage";
 import ReportIssuePage from "../pages/Dashboard_Extras/report_issue";
 import SchemesPage from "../pages/Schemes/SchemesPage";
 import LegalPage from "../pages/Legal/LegalPage";
+import ProfilePage from "../pages/Profile/ProfilePage";
 
 export default function AppRoutes() {
     return (
         <Routes>
             <Route element={<MainLayout />}>
                 <Route path="/" element={<LandingPage />} />
-        </Route>
+            </Route>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/schemes" element={<SchemesPage />} />
-            <Route path="/legal" element={<LegalPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/dashboard/dashboard_report_issue" element={<ReportIssuePage />} />
-
-        
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard/schemes" element={<SchemesPage />} />
+            <Route path="/dashboard/legal" element={<LegalPage />} />
+            <Route
+                path="/dashboard/dashboard_report_issue"
+                element={<ReportIssuePage />}
+            />
+            <Route path="/profile" element={<ProfilePage />} />
         </Routes>
     );
 }
