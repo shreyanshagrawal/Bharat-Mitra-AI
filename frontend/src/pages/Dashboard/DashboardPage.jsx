@@ -120,7 +120,7 @@ const DashboardPage = () => {
                   title="Report Civic Issue"
                   desc="Report problems in your area like potholes."
                   actionText="Report Issue"
-                  link="/dashboard/dashboard_report_issue"
+                  link="/dashboard/dashboardreportissue"
                 />
                 <ServiceCard
                   icon={<Scale />}

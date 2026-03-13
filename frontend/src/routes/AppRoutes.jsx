@@ -21,7 +21,7 @@ export default function AppRoutes() {
             <Route path="/dashboard/schemes" element={<SchemesPage />} />
             <Route path="/dashboard/legal" element={<LegalPage />} />
             <Route
-                path="/dashboard/dashboard_report_issue"
+                path="/dashboard/dashboardreportissue"
                 element={<ReportIssuePage />}
             />
             <Route path="/profile" element={<ProfilePage />} />
