@@ -12,26 +12,43 @@ import {
   X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
 
 const ReportIssuePage = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [issueType, setIssueType] = useState("");
   const [customIssue, setCustomIssue] = useState("");
+  const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file) {
       alert("Please upload photo evidence before submitting.");
       return;
     }
     setLoading(true);
-    setTimeout(() => {
+    
+    try {
+      const response = await axios.post('/api/issues', {
+        issueType,
+        customIssue: issueType === "other" ? customIssue : "",
+        location,
+        description
+      });
+      
+      if (response.data.success) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Failed to submit issue", error);
+      alert("An error occurred while submitting the issue.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -170,6 +187,8 @@ const ReportIssuePage = () => {
                 <input
                   required
                   type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   placeholder="Enter street name or landmark"
                   className="flex-1 p-3 border border-slate-200 rounded-l-lg focus:ring-2 focus:ring-orange-500 outline-none transition-all z-10"
                 />
@@ -191,6 +210,8 @@ const ReportIssuePage = () => {
               <textarea
                 required
                 rows="4"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 placeholder="Describe the problem in detail..."
                 className="w-full p-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none resize-none transition-all"
               ></textarea>

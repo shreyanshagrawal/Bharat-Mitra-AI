@@ -113,7 +113,7 @@ const DashboardPage = () => {
                   title="Find Government Schemes"
                   desc="Discover schemes you are eligible for instantly."
                   actionText="Check Eligibility"
-                  link="/schemes"
+                  link="/dashboard/schemes"
                 />
                 <ServiceCard
                   icon={<AlertTriangle />}
@@ -127,7 +127,7 @@ const DashboardPage = () => {
                   title="Know Your Rights"
                   desc="Understand your legal rights in simple language."
                   actionText="Ask Legal AI"
-                  link="/legal"
+                  link="/dashboard/legal"
                 />
               </div>
             </section>
